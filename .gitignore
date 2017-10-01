@@ -1,0 +1,4 @@
+.dist/
+codealike.json
+.dotty-ide*
+target/
