@@ -1,20 +1,46 @@
 package com.nitrograph.cuda.code
 
-sealed trait CUDACode
+import com.nitrograph.cuda.builder.resource._
+import scala.collection.mutable.ArrayBuffer
+import scala.collection.immutable.HashMap
+import com.nitrograph.cuda.code.structure._
 
-enum class MemoryOperationKind
-object MemoryOperationKind {
-    case Allocation(chunkSize: Int)
-    case Deallocation
+trait CUDACode {
+    def toCPP: String
 }
 
-enum class Target
-object Target {
-    case Host
-    case Device
+object CUDACode {
+    def Sequence(
+            statements: ArrayBuffer[CUDACode] = ArrayBuffer.empty
+        ): StatementSequence = {
+
+        StatementSequence(
+            statements
+        )
+
+    }
+
+    def Structure(
+        name: String,
+        members: Map[String, CUDAStructureMember]
+    ): CUDAStructure = {
+        CUDAStructure(
+            name,
+            members
+        )
+    }
 }
 
-case class MemoryOperation(
-    target: Target,
-    kind: MemoryOperationKind
-) extends CUDACode
+case class StatementSequence(
+    var statements: ArrayBuffer[CUDACode]
+) extends CUDACode {
+    def <+=(statement: CUDACode): Unit = {
+        statements += statement
+    }
+
+    def toCPP: String = {
+        statements.map(
+            _.toCPP
+        ).mkString("\n")
+    }
+}

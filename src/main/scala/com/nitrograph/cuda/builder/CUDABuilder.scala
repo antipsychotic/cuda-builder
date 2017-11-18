@@ -1,7 +1,13 @@
 package com.nitrograph.cuda.builder
 
+import com.nitrograph.cuda.builder.resource._
+
 object CudaBuilder {
   def main(arguments: Array[String]): Unit = {
+
+    val runtimeResourceTest = new RuntimeResourceTest
+
+    runtimeResourceTest.check
     /**
       * I want:
       * 1. Build Input Set {
