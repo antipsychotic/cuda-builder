@@ -9,7 +9,7 @@
                 * `ResourceManager`
                     * [ ] HostHeapMemory
                     * [ ] DeviceMemory
-                    * [ ] Allocate
+                    * [x] Allocate
                     * [ ] Deallocate
             * `RuntimeResource`
                 * [ ] Owner
