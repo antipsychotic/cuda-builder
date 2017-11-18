@@ -6,29 +6,28 @@ trait CUDAVariableKind extends CUDACode {
     def toCPP: String
 }
 
-sealed trait PrimitiveKind extends CUDAVariableKind
-
-case object FloatKind extends PrimitiveKind {
-    override def toCPP: String = {
-        s"float"
+enum PrimitiveKind
+    extends CUDAVariableKind
+{
+    case `Float` {
+        override def toCPP: String = {
+            s"float"
+        }
     }
-}
-
-case object DoubleKind extends PrimitiveKind {
-    override def toCPP: String = {
-        s"double"
+    case `Double` {
+        override def toCPP: String = {
+            s"double"
+        }
     }
-}
-
-case object CharKind extends PrimitiveKind {
-    override def toCPP: String = {
-        s"char"
+    case `Char` {
+        override def toCPP: String = {
+            s"char"
+        }
     }
-}
-
-case object BooleanKind extends PrimitiveKind {
-    override def toCPP: String = {
-        s"boolean"
+    case `Boolean` {
+        override def toCPP: String = {
+            s"bool"
+        }
     }
 }
 

@@ -54,10 +54,10 @@ case class ChunkSize(
     override def toString: String = {
         s"""${size.value} * sizeof( \\
             ${size.kind match {
-                case DoubleKind => {
+                case PrimitiveKind.`Double`=> {
                     "double"
                 }
-                case FloatKind => {
+                case PrimitiveKind.`Float`=> {
                     "float"
                 }
             }} \\

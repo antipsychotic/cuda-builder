@@ -50,10 +50,10 @@ package object dsl {
                     base.size.value,
                     base.size.kind match {
                         case DSLFloatKind => {
-                            FloatKind
+                            PrimitiveKind.`Float`
                         }
                         case DSLDoubleKind => {
-                            DoubleKind
+                            PrimitiveKind.`Double`
                         }
                     }
                 )
