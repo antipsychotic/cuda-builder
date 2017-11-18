@@ -7,14 +7,14 @@
         * `resource`
             * `manager`
                 * `ResourceManager`
-                    [ ] HostHeapMemory
-                    [ ] DeviceMemory
-                    [ ] Allocate
-                    [ ] Deallocate
+                    * [ ] HostHeapMemory
+                    * [ ] DeviceMemory
+                    * [ ] Allocate
+                    * [ ] Deallocate
             * `RuntimeResource`
-                [ ] Owner
-                [ ] MemoryChunk
-                [ ] ChunkSize
+                * [ ] Owner
+                * [ ] MemoryChunk
+                * [ ] ChunkSize
             * `RuntimeResourceTest`
         * `test`
             * `CUDABuilderTestSuite`
@@ -22,7 +22,7 @@
     * `code`
         * `dsl`
             * `CUDACodeDSL`
-                [ ] `entity("input") of (2048::floats) in ram chunk`
+                * [ ] `entity("input") of (2048::floats) in ram chunk`
         * `function`
             * `CUDAFunction`
         * `memory`
